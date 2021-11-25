@@ -5,21 +5,12 @@ let input = fs.readFileSync('input.txt').toString().split('\n');
 
 //input은 input.txt를 읽어서 줄 별로 나누어서 배열에 담은 것
 
-//첫째 줄에 시험 점수. 점수는 0보다 크거나 같고, 100보다 작거나 같은 정수이다.
-score = Number(input[0]);//첫 번째 줄의 1데이터
+//윤년이면 1, 아니면 0
+//윤년은 연도가 4의 배수이면서, 100의 배수가 아닐 때 또는 400의 배수일 때
+year = Number(input[0]);//첫 번째 줄의 1데이터
 
-if(score >= 90 && score <= 100){
-  console.log('A')
-}
-else if(score >= 80 && score <= 89){
-  console.log('B')
-}
-else if(score >= 70 && score <= 79){
-  console.log('C')
-}
-else if(score >= 60 && score <= 69){
-  console.log('D')
-}
-else{
-  console.log('F')
-}
+if (year % 4 === 0 && (year % 100 !== 0) || (year % 400 === 0)){
+  console.log('1')
+} else {
+  console.log('0')
+  };
