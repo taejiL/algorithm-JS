@@ -1,16 +1,38 @@
-let fs = require('fs');
-let input = fs.readFileSync('input.txt').toString().split('\n');
-// let input = fs.readFileSync('input.txt').toString().split('\n');
-// let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+const readline = require("readline");
 
-//input은 input.txt를 읽어서 줄 별로 나누어서 배열에 담은 것
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-//윤년이면 1, 아니면 0
-//윤년은 연도가 4의 배수이면서, 100의 배수가 아닐 때 또는 400의 배수일 때
-year = Number(input[0]);//첫 번째 줄의 1데이터
+let input = [];
 
-if (year % 4 === 0 && (year % 100 !== 0) || (year % 400 === 0)){
-  console.log('1')
-} else {
-  console.log('0')
-  };
+rl.on("line", function (line) { // 입력되는 값을 line에서 한줄씩 읽어들임
+  input.push(line);
+}).on("close", function () {
+  const X = Number(input[0]);
+  const Y = Number(input[1]);
+
+  if (X > 0 && Y > 0) {
+    console.log(1);
+  } else if (X < 0 && Y > 0) {
+    console.log(2);
+  } else if (X < 0 && Y < 0) {
+    console.log(3);
+  } else if (X > 0 && Y < 0) {
+    console.log(4);
+  } else {
+    console.log(0);
+  }
+
+  process.exit(); // 프로그램 종료
+});
+
+
+//fs모듈로하면 오류나는 문제//
+/// 참고 ///
+// if (X > 0) {
+//     console.log(Y > 0 ? 1 : 4);
+//   } else {
+//     console.log(Y > 0 ? 2 : 3);
+//   }
