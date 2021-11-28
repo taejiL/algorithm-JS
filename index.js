@@ -1,38 +1,20 @@
-const readline = require("readline");
+let fs = require('fs');
+let input = fs.readFileSync('input.txt').toString().split('\n');
+// let input = fs.readFileSync('input.txt').toString().split('\n');
+// let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+let alarm = input[0].split(' ');
+//첫 번째 줄의 데이터를 공백 기준 나눔 (0 ≤ H ≤ 23, 0 ≤ M ≤ 59)
+H = Number(alarm[0]);  // 시간
+M = Number(alarm[1]);  // 분
 
-let input = [];
-
-rl.on("line", function (line) { // 입력되는 값을 line에서 한줄씩 읽어들임
-  input.push(line);
-}).on("close", function () {
-  const X = Number(input[0]);
-  const Y = Number(input[1]);
-
-  if (X > 0 && Y > 0) {
-    console.log(1);
-  } else if (X < 0 && Y > 0) {
-    console.log(2);
-  } else if (X < 0 && Y < 0) {
-    console.log(3);
-  } else if (X > 0 && Y < 0) {
-    console.log(4);
-  } else {
-    console.log(0);
-  }
-
-  process.exit(); // 프로그램 종료
-});
-
-
-//fs모듈로하면 오류나는 문제//
-/// 참고 ///
-// if (X > 0) {
-//     console.log(Y > 0 ? 1 : 4);
-//   } else {
-//     console.log(Y > 0 ? 2 : 3);
-//   }
+if ( M < 45 ) {
+  H -= 1;
+  M += 15; // M +60 -45
+  if (H === -1){
+    H = 23;
+  } 
+  console.log(`${H} ${M}`);
+} else {
+  console.log(`${H} ${M-45}`);
+}
