@@ -3,13 +3,13 @@ let input = fs.readFileSync('input.txt').toString().split('\n');
 // let input = fs.readFileSync('input.txt').toString().split('\n');
 // let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
-let T = input[0].split(' ');
-//T 케이스 개수 
+let N = input[0].split(' ');
+let sum = 0; // sum 초기화
 
 
-for(let i = 1; i <= T; i++){
-  let ABC = input[i].split(' '); //각 줄의 A와B를 넣는다.
-  console.log(`${Number(ABC[0]) + Number(ABC[1])}`) //A + B
-}
+  for(let i = 1; i <= N; i++){
+    sum += i //sum = sum + i
+  }
+  console.log(sum) // 밖에서 찍어줘 마지막 한번만 출력
 
 
