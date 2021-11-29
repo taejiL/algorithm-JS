@@ -1,12 +1,12 @@
 let fs = require('fs');
-let input = fs.readFileSync('input.txt').toString().split('\n');
+let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 // let input = fs.readFileSync('input.txt').toString().split('\n');
 // let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
 let N = input[0].split(' '); //주어진 N
-let answer = ""; // 초기화
+let answer = ''; // 초기화
 
-for( i=1; i<=N; i++ ){
+for( let i=N; i>=1; i-- ){ // i초기화; i가 0되면 멈춤; i씩- 
   answer += i + '\n'; // 빨리
   //출력을 하나씩 해주면 시간 초과가 난다. 
 }
