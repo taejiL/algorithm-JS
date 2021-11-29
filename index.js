@@ -1,13 +1,12 @@
 let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+let input = fs.readFileSync('input.txt').toString().split('\n');
 // let input = fs.readFileSync('input.txt').toString().split('\n');
 // let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
-let N = input[0].split(' '); //주어진 N
-let answer = ''; // 초기화
+let T = Number(input[0]); //케이스의 개수 T
 
-for( let i=N; i>=1; i-- ){ // i초기화; i가 0되면 멈춤; i씩- 
-  answer += i + '\n'; // 빨리
-  //출력을 하나씩 해주면 시간 초과가 난다. 
+
+for( let i = 1; i <= T; i++ ){ 
+  let ABC = input[i].split(' '); // 초기화
+  console.log(`Case #${i}: ${Number(ABC[0]) + Number(ABC[1])}`);
 }
-console.log(answer);//마지막에 한번에 출력
