@@ -3,14 +3,10 @@ let input = fs.readFileSync('input.txt').toString().split('\n');
 // let input = fs.readFileSync('input.txt').toString().split('\n');
 // let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
-let T = Number(input[0]); //케이스의 개수 T
 
+  let message = ''; // 초기화
 
-for( let i = 1; i <= T; i++ ){ 
-  let ABC = input[i].split(' '); // 초기화
-  let A = Number(ABC[0]);
-  let B = Number(ABC[1]);
-  let C = Number(ABC[0]) + Number(ABC[1]);
-
-  console.log(`Case #${i}: ${A} + ${B} = ${C}`);
-}
+  for (let i = 0; i < input[0]; i++) { //input[0]첫째줄 처음에 들어온것(명확히)
+  message += '*'; // 한바퀴씩 돌때마다 *를 더해준다.
+  console.log(message);
+  }
