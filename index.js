@@ -1,35 +1,15 @@
-const readline = require('readline');
+let fs = require('fs');
+let input = fs.readFileSync('input.txt').toString().split('\n');
+// let input = fs.readFileSync('input.txt').toString().split('\n');
+// let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-
-rl.on('line', function (line) {
-    
-
-    let stars = '';
-    for(let stars = 1; stars <= line; stars++){
-        console.log(' '.repeat(line - stars) + '*'.repeat(stars))
-    }
-    console.log(stars);
-    
-    
-rl.close();
-}).on('close', function () {
-    process.exit();
-});
-
-//위의 내용...fs 모듈에서는 틀렸습니다 떴음 ㅠ//
-//아래 나용...  런타임 에러 // 
-// for(let i=0; i<N; i++){// N번째 줄까지, height
-//     let blanks = ''; //초기화
-//     let stars = '';  //초기화
-
-//     for(let b = N-1; b>i; b--){//(N-1)개의 공백으로 시작해서 1씩 감소
-//         blanks += ' '; // blanks에 공백 담기
-//     }
-//     for(let s=0; s<=i; s++){//0번째부터 i번째까지 1씩 증가
-//         stars += '*'; // stars에 * 담기
-//     }
-//     console.log(blanks+stars);//출력
+NX = input[0].split(' ');//첫 번째 줄의 데이터를 공백 기준 나눔
+N = NX[0]
+X = NX[1]
+A = input[1].split(' ');//A수열을 이루는 것들 N개
+let result = '';//초기화
+for(let i=0; i<N; i++){
+  if( Number(A[i]) < X ){
+    console.log(A[i])
+  }
+}
